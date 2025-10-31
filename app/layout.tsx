@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Kufi_Arabic, Lora } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 import { cn } from "@/lib/utils";
 
 const notoKufiArabic = Noto_Kufi_Arabic({
@@ -24,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
+    <html lang="ar" dir="rtl" className="scroll-smooth">
       <body
         className={cn(
           notoKufiArabic.variable,
@@ -32,6 +33,7 @@ export default function RootLayout({
           "font-noto-kufi-arabic antialiased"
         )}
       >
+        <Header />
         {children}
       </body>
     </html>

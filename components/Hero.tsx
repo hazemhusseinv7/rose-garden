@@ -14,7 +14,7 @@ const Hero = async () => {
 
   return (
     <section id="hero" className="relative h-screen">
-      <div className="w-full ">
+      <div className="w-full">
         <div className="md:min-w-[20rem] ">
           <BackgroundMedia
             type="video"

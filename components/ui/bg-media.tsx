@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 
 import { cva } from "class-variance-authority";
@@ -49,19 +49,19 @@ export const BackgroundMedia: React.FC<BackgroundMediaProps> = ({
   src,
   alt = "",
 }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  // const [isPlaying, setIsPlaying] = useState(true);
   const mediaRef = useRef<HTMLVideoElement | null>(null);
 
-  const toggleMediaPlay = () => {
-    if (type === "video" && mediaRef.current) {
-      if (isPlaying) {
-        mediaRef.current.pause();
-      } else {
-        mediaRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
+  // const toggleMediaPlay = () => {
+  //   if (type === "video" && mediaRef.current) {
+  //     if (isPlaying) {
+  //       mediaRef.current.pause();
+  //     } else {
+  //       mediaRef.current.play();
+  //     }
+  //     setIsPlaying(!isPlaying);
+  //   }
+  // };
 
   const mediaClasses = cn(
     backgroundVariants({ overlay: variant, type }),
@@ -87,7 +87,7 @@ export const BackgroundMedia: React.FC<BackgroundMediaProps> = ({
       return (
         <Image
           src={src}
-        fill 
+          fill
           alt={alt}
           className="absolute inset-0 h-full w-full object-cover rounded-br-[88px]"
           loading="eager"
