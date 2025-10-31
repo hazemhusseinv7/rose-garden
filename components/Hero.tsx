@@ -1,10 +1,10 @@
-import { getMainData } from "@/lib/sanity/queries";
+import { getHeroData } from "@/lib/sanity/queries";
 import { TextEffect } from "./motion-primitives/text-effect";
 import BackgroundMedia from "./ui/bg-media";
 import { cn } from "@/lib/utils";
 
 const Hero = async () => {
-  const data: HeroType | null = await getMainData();
+  const data: HeroType | null = await getHeroData();
 
   if (!data) return;
 

@@ -129,3 +129,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Text Selection */
+::-moz-selection {
+  @apply text-primary-3 bg-primary-1;
+}
+
+::selection {
+  @apply text-primary-3 bg-primary-1;
+}
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  @apply w-[10px];
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-primary-3;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-linear-to-br from-primary-1 to-primary-2 hover:from-primary-4 hover:to-primary-5 rounded-full;
+}
