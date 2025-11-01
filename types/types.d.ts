@@ -33,6 +33,9 @@ interface HeroType {
   backgroundVideo: {
     asset: VideoType;
   };
+  backgroundVideoMobile?: {
+    asset: VideoType;
+  };
   videoAltText?: string;
 }
 
@@ -42,4 +45,27 @@ interface AboutUsType {
 
 interface TestimonialsType {
   testimonials: { name: string; content: string }[];
+}
+
+interface CategoryType {
+  title: string;
+  description?: any[];
+}
+
+interface AuthorType {
+  name: string;
+  image?: any;
+  bio?: any[];
+}
+interface BlogPost {
+  _id: string;
+  title: string;
+  slug: {
+    current: string;
+  };
+  mainImage: any;
+  publishedAt?: string;
+  body: any[];
+  author?: AuthorType;
+  categories?: CategoryType[];
 }

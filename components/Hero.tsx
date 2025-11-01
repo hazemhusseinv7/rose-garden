@@ -9,19 +9,30 @@ const Hero = async () => {
   if (!data) return;
 
   const title = data.title.split("\n") || [];
-  const video = data.backgroundVideo.asset.url;
+  const desktopVideo = data.backgroundVideo.asset.url;
+  const mobileVideo = data.backgroundVideoMobile?.asset.url;
   const altText = data.videoAltText || "Background video";
 
   return (
     <section id="hero" className="relative h-screen">
       <div className="w-full">
-        <div className="md:min-w-[20rem] ">
-          <BackgroundMedia
-            type="video"
-            variant="dark"
-            src={video}
-            alt={altText}
-          />
+        <div className="md:min-w-[20rem]">
+          <div className="hidden md:block">
+            <BackgroundMedia
+              type="video"
+              variant="dark"
+              src={desktopVideo}
+              alt={altText}
+            />
+          </div>
+          <div className="md:hidden">
+            <BackgroundMedia
+              type="video"
+              variant="dark"
+              src={mobileVideo ? mobileVideo : desktopVideo}
+              alt={altText}
+            />
+          </div>
         </div>
       </div>
 

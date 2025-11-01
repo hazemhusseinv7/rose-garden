@@ -13,7 +13,7 @@ export async function getSettingsData(): Promise<SettingsType | null> {
       query,
       {},
       {
-        next: { revalidate: 3600, tags: ["settings", "content"] },
+        next: { revalidate: 0, tags: ["settings", "content"] },
       }
     );
   } catch (error) {
@@ -67,6 +67,14 @@ export async function getHeroData(): Promise<HeroType | null> {
         size
       }
     },
+    backgroundVideoMobile {
+      asset-> {
+        url,
+        originalFilename,
+        mimeType,
+        size
+      }
+    },
     videoAltText
   }`;
 
@@ -75,7 +83,7 @@ export async function getHeroData(): Promise<HeroType | null> {
       query,
       {},
       {
-        next: { revalidate: 3600, tags: ["hero", "content"] },
+        next: { revalidate: 0, tags: ["hero", "content"] },
       }
     );
   } catch (error) {
@@ -102,7 +110,7 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
       query,
       {},
       {
-        next: { revalidate: 3600, tags: ["aboutUs"] },
+        next: { revalidate: 0, tags: ["aboutUs"] },
       }
     );
   } catch (error) {
@@ -124,11 +132,62 @@ export async function getTestimonialsData(): Promise<TestimonialsType | null> {
       query,
       {},
       {
-        next: { revalidate: 3600, tags: ["testimonials"] },
+        next: { revalidate: 0, tags: ["testimonials"] },
       }
     );
   } catch (error) {
     console.error("Error fetching testimonials data:", error);
+    return null;
+  }
+}
+
+export async function getBlogPosts(): Promise<BlogPost[] | null> {
+  const query = `*[_type == "blog"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    "author": author->{name, image, bio},
+    "categories": categories[]->{title, description}
+  }`;
+
+  try {
+    return await sanityClient.fetch(
+      query,
+      {},
+      {
+        next: { revalidate: 0, tags: ["blog", "content"] },
+      }
+    );
+  } catch (error) {
+    console.error("Error fetching blog posts:", error);
+    return [];
+  }
+}
+
+export async function getBlogPost(slug: string): Promise<BlogPost | null> {
+  const query = `*[_type == "blog" && slug.current == $slug][0] {
+    _id,
+    title,
+    slug,
+    mainImage,
+    publishedAt,
+    body,
+    "author": author->{name, image, bio},
+    "categories": categories[]->{title, description}
+  }`;
+
+  try {
+    return await sanityClient.fetch(
+      query,
+      { slug },
+      {
+        next: { revalidate: 0, tags: [`blog-post-${slug}`, "content"] },
+      }
+    );
+  } catch (error) {
+    console.error("Error fetching blog post:", error);
     return null;
   }
 }

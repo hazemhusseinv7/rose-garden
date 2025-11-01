@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Noto_Kufi_Arabic, Lora } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
+import { Providers } from "@/app/providers";
 import { cn } from "@/lib/utils";
+import Header from "@/components/Header";
 
 const notoKufiArabic = Noto_Kufi_Arabic({
   variable: "--font-noto-kufi-arabic",
@@ -33,8 +34,10 @@ export default function RootLayout({
           "font-noto-kufi-arabic antialiased"
         )}
       >
-        <Header />
-        {children}
+        <Providers>
+          <Header />
+          {children}
+        </Providers>
       </body>
     </html>
   );

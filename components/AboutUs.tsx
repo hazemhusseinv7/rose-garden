@@ -111,7 +111,8 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="md:w-8 md:h-8 sm:w-6 w-5 sm:h-6 h-5 border border-gray-200 bg-gray-100 hover:bg-primary-4 transition-colors duration-300 rounded-lg flex items-center justify-center  cursor-pointer"
+                  aria-label={name}
+                  className="md:size-8 sm:size-6 size-5 border border-gray-200 bg-gray-100 hover:bg-primary-4 transition-colors duration-300 rounded-lg flex items-center justify-center  cursor-pointer"
                 >
                   <Icon />
                 </TimelineContent>
@@ -163,14 +164,14 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
               className="flex gap-4"
             >
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                <span className="text-primary-4 font-bold">
+                <span className="text-primary-1 font-bold">
                   7500 م<sup>2</sup>
                 </span>
                 <span className="text-gray-600">مساحة المنتجع الكلية</span>
                 <span className="text-gray-300">|</span>
               </div>
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                <span className="text-primary-4 font-bold">7</span>
+                <span className="text-primary-1 font-bold">7</span>
                 <span className="text-gray-600">فلل فاخرة مستقلة</span>
               </div>
             </TimelineContent>
@@ -264,7 +265,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
             </TimelineContent>
           </div>
 
-          <div className="md:col-span-1">
+          <div className="md:col-span-1 lg:pt-8">
             <div className="text-right">
               <TimelineContent
                 as="div"
@@ -299,7 +300,8 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
               </TimelineContent>
 
               <TimelineContent
-                as="button"
+                as="a"
+                href="/reservation"
                 animationNum={15}
                 timelineRef={heroRef}
                 customVariants={revealVariants}

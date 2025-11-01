@@ -5,6 +5,7 @@ import Link from "next/link";
 
 import { gsap } from "gsap";
 import { GoArrowUpRight } from "react-icons/go";
+import Image from "next/image";
 
 type CardNavLink = {
   label: string;
@@ -173,7 +174,7 @@ const CardNav: React.FC<CardNavProps> = ({
         } block h-[60px] p-0 rounded-xl shadow-md relative overflow-hidden will-change-[height]`}
         style={{ backgroundColor: baseColor }}
       >
-        <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-[1.1rem] lg:p-2 z-2">
+        <div className="card-nav-top absolute inset-x-0 top-0 h-[60px] flex items-center justify-between p-2 max-md:px-[1.1rem] z-2">
           <div
             className={`hamburger-menu ${
               isHamburgerOpen ? "open" : ""
@@ -200,13 +201,19 @@ const CardNav: React.FC<CardNavProps> = ({
             href="/"
             className="logo-container flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 order-1 md:order-0"
           >
-            <img src={logo} alt={logoAlt} className="logo h-8" />
+            <Image
+              src={logo}
+              width={113.05}
+              height={32}
+              alt={logoAlt}
+              className="logo h-8 w-auto"
+            />
           </Link>
 
           <Link
             href="/reservation"
             type="button"
-            className="card-nav-cta-button hidden md:inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center"
+            className="card-nav-cta-button inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
             احجز الآن
