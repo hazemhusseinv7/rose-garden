@@ -16,13 +16,13 @@ export type CardNavItem = {
   label: string;
   bgColor: string;
   textColor: string;
-  links: CardNavLink[];
+  links?: CardNavLink[];
 };
 
 export interface CardNavProps {
   logo: string;
   logoAlt?: string;
-  items: CardNavItem[];
+  items?: CardNavItem[];
   className?: string;
   ease?: string;
   baseColor?: string;
@@ -233,18 +233,20 @@ const CardNav: React.FC<CardNavProps> = ({
               </div>
               <div className="nav-card-links mt-auto flex flex-col gap-0.5">
                 {item.links?.map((lnk, i) => (
-                  <a
+                  <Link
                     key={`${lnk.label}-${i}`}
                     className="nav-card-link inline-flex items-center gap-1.5 no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
                     href={lnk.href}
                     aria-label={lnk.ariaLabel}
+                    target={idx === 2 ? "_blank" : undefined}
+                    rel={idx === 2 ? "noopener noreferrer" : undefined}
                   >
                     <GoArrowUpRight
                       className="nav-card-link-icon shrink-0"
                       aria-hidden="true"
                     />
                     {lnk.label}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

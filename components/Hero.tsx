@@ -18,7 +18,7 @@ const Hero = async () => {
         <div className="md:min-w-[20rem] ">
           <BackgroundMedia
             type="video"
-            variant="light"
+            variant="dark"
             src={video}
             alt={altText}
           />

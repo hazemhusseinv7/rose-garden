@@ -7,7 +7,12 @@ import VerticalCutReveal from "@/components/ui/vertical-cut-reveal";
 
 import { urlFor } from "@/lib/sanity/image";
 
-import { FaXTwitter, FaInstagram, FaTiktok } from "react-icons/fa6";
+import {
+  FaXTwitter,
+  FaInstagram,
+  FaTiktok,
+  FaMapLocationDot,
+} from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { GoArrowUpRight } from "react-icons/go";
 
@@ -75,7 +80,11 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
   const aboutUsImage = aboutUs?.image;
 
   return (
-    <section id="about-us" className="py-8 px-4 bg-[#f9f9f9]" ref={heroRef}>
+    <section
+      id="about-us"
+      className="px-8 pt-20 pb-32 bg-[#f9f9f9]"
+      ref={heroRef}
+    >
       <div className="max-w-6xl mx-auto">
         <div className="relative">
           {/* Header with social icons */}
@@ -145,7 +154,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
           </TimelineContent>
 
           {/* Stats */}
-          <div className="flex flex-wrap lg:justify-start justify-between items-center py-3 text-sm rtl:flex-row-reverse">
+          <div className="flex flex-wrap lg:justify-start justify-between items-center py-3 text-sm rtl:sm:flex-row-reverse">
             <TimelineContent
               as="div"
               animationNum={5}
@@ -154,16 +163,18 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
               className="flex gap-4"
             >
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                <span className="text-primary-4 font-bold">test</span>
-                <span className="text-gray-600">test</span>
+                <span className="text-primary-4 font-bold">
+                  7500 م<sup>2</sup>
+                </span>
+                <span className="text-gray-600">مساحة المنتجع الكلية</span>
                 <span className="text-gray-300">|</span>
               </div>
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                <span className="text-primary-4 font-bold">test</span>
-                <span className="text-gray-600">test</span>
+                <span className="text-primary-4 font-bold">7</span>
+                <span className="text-gray-600">فلل فاخرة مستقلة</span>
               </div>
             </TimelineContent>
-            <div className="lg:absolute right-0 bottom-16 flex lg:flex-col flex-row-reverse lg:gap-0 gap-4">
+            <div className="lg:absolute right-0 bottom-16 flex lg:flex-col lg:gap-0 gap-4 lg:ps-5">
               <TimelineContent
                 as="div"
                 animationNum={6}
@@ -171,8 +182,10 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 customVariants={revealVariants}
                 className="flex lg:text-4xl sm:text-3xl text-2xl items-center gap-2 mb-2"
               >
-                <span className="text-primary-5 font-semibold">test</span>
-                <span className="text-gray-600 uppercase">test</span>
+                <p className="text-primary-5 font-semibold">
+                  2200 <span className="text-gray-600 font-normal">متــر</span>
+                </p>
+                {/* <span className="text-gray-600 uppercase"></span> */}
               </TimelineContent>
               <TimelineContent
                 as="div"
@@ -181,8 +194,10 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 customVariants={revealVariants}
                 className="flex items-center gap-2 mb-2 sm:text-base text-xs"
               >
-                <span className="text-primary-5 font-bold">test</span>
-                <span className="text-gray-600">test</span>
+                <span className="text-gray-600 font-bold">فوق</span>
+                <p className="text-primary-5 font-bold text-xl lg:text-3xl">
+                  سطح <span className="lg:text-4xl">البحر</span>
+                </p>
                 <span className="text-gray-300 lg:hidden block">|</span>
               </TimelineContent>
             </div>
@@ -256,9 +271,10 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 animationNum={12}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="text-primary-1 text-2xl font-bold mb-2"
+                className="flex items-center gap-2 text-primary-1 text-2xl font-bold mb-2"
               >
-                lorem
+                <FaMapLocationDot />
+                منطقة الشفا الجبلية
               </TimelineContent>
               <TimelineContent
                 as="div"
@@ -267,7 +283,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 customVariants={revealVariants}
                 className="text-gray-600 text-sm mb-8"
               >
-                Lorem, ipsum dolor.
+                الطائف، المملكة العربية السعودية
               </TimelineContent>
 
               <TimelineContent

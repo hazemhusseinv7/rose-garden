@@ -1,42 +1,36 @@
-import CardNav from "./CardNav";
+import { getHeaderData } from "@/lib/sanity/queries";
+import { urlFor } from "@/lib/sanity/image";
 
-const Header = () => {
-  const items = [
-    {
-      label: "About",
-      bgColor: "var(--color-primary-1)",
+import CardNav from "@/components/CardNav";
+
+const Header = async () => {
+  const data: HeaderType | null = await getHeaderData();
+
+  const items = data?.navigationItems.map(({ title, image, links }, i) => {
+    const colors = [
+      "var(--color-primary-1)",
+      "var(--color-primary-2)",
+      "var(--color-primary-4)",
+    ];
+
+    return {
+      label: title,
+      bgColor: colors[i],
+      image: image ? urlFor(image).url() : "",
       textColor: "#fff",
-      links: [
-        { label: "Company", ariaLabel: "About Company", href: "#" },
-        { label: "Careers", ariaLabel: "About Careers", href: "#" },
-      ],
-    },
-    {
-      label: "Projects",
-      bgColor: "var(--color-primary-2)",
-      textColor: "#fff",
-      links: [
-        { label: "Featured", ariaLabel: "Featured Projects", href: "#" },
-        { label: "Case Studies", ariaLabel: "Project Case Studies", href: "#" },
-      ],
-    },
-    {
-      label: "Contact",
-      bgColor: "var(--color-primary-4)",
-      textColor: "#fff",
-      links: [
-        { label: "Email", ariaLabel: "Email us", href: "#" },
-        { label: "Twitter", ariaLabel: "Twitter", href: "#" },
-        { label: "LinkedIn", ariaLabel: "LinkedIn", href: "#" },
-      ],
-    },
-  ];
+      links: links?.map(({ name, href }) => ({
+        label: name,
+        href: href,
+        ariaLabel: name,
+      })),
+    };
+  });
 
   return (
     <header>
       <CardNav
         logo="/logo/logo-horizontal.svg"
-        logoAlt="Company Logo"
+        logoAlt="Logo"
         items={items}
         baseColor="rgba(255,255,255,0.85)"
         menuColor="#000"

@@ -20,6 +20,14 @@ interface SettingsType {
   whatsapp?: string;
 }
 
+interface HeaderType {
+  navigationItems: {
+    title: string;
+    image?: ImageType;
+    links?: { name: string; href: string }[];
+  }[];
+}
+
 interface HeroType {
   title: string;
   backgroundVideo: {
@@ -30,4 +38,8 @@ interface HeroType {
 
 interface AboutUsType {
   image: ImageType;
+}
+
+interface TestimonialsType {
+  testimonials: { name: string; content: string }[];
 }
