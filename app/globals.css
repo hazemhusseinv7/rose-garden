@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 @plugin '../hero.ts';
 @source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --color-primary-1: #606c38;
@@ -149,7 +150,7 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-primary-3;
+  @apply bg-primary-2/20;
 }
 
 /* Handle */

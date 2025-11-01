@@ -82,20 +82,20 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
   return (
     <section
       id="about-us"
-      className="px-8 pt-20 pb-32 bg-[#f9f9f9]"
+      className="px-8 pt-20 pb-32 bg-linear-to-t from-muted-foreground/5"
       ref={heroRef}
     >
       <div className="max-w-6xl mx-auto">
         <div className="relative">
           {/* Header with social icons */}
-          <div className="flex justify-between items-center mb-8 w-[85%] absolute left-0 lg:top-4 md:top-0 sm:-top-2 -top-3 z-10">
+          <div className="flex justify-between items-center mb-8 w-[85%] absolute left-0 lg:top-2 md:top-0 sm:-top-2 -top-3 z-10">
             <div className="flex items-center gap-2 text-xl">
               <TimelineContent
                 as="h2"
                 animationNum={0}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="max-lg:text-sm font-medium text-gray-600"
+                className="text-sm lg:text-2xl font-medium text-gray-600 dark:text-gray-300"
               >
                 من نحن
               </TimelineContent>
@@ -112,7 +112,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={name}
-                  className="md:size-8 sm:size-6 size-5 border border-gray-200 bg-gray-100 hover:bg-primary-4 transition-colors duration-300 rounded-lg flex items-center justify-center  cursor-pointer"
+                  className="md:size-8 sm:size-6 size-5 border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 hover:bg-primary-4 transition-colors duration-300 rounded-lg flex items-center justify-center  cursor-pointer"
                 >
                   <Icon />
                 </TimelineContent>
@@ -164,15 +164,19 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
               className="flex gap-4"
             >
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                <span className="text-primary-1 font-bold">
+                <span className="text-primary-5 font-bold">
                   7500 م<sup>2</sup>
                 </span>
-                <span className="text-gray-600">مساحة المنتجع الكلية</span>
+                <span className="text-gray-600 dark:text-gray-300">
+                  مساحة المنتجع الكلية
+                </span>
                 <span className="text-gray-300">|</span>
               </div>
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                <span className="text-primary-1 font-bold">7</span>
-                <span className="text-gray-600">فلل فاخرة مستقلة</span>
+                <span className="text-primary-5 font-bold">7</span>
+                <span className="text-gray-600 dark:text-gray-300">
+                  فلل فاخرة مستقلة
+                </span>
               </div>
             </TimelineContent>
             <div className="lg:absolute right-0 bottom-16 flex lg:flex-col lg:gap-0 gap-4 lg:ps-5">
@@ -184,7 +188,10 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 className="flex lg:text-4xl sm:text-3xl text-2xl items-center gap-2 mb-2"
               >
                 <p className="text-primary-5 font-semibold">
-                  2200 <span className="text-gray-600 font-normal">متــر</span>
+                  2200{" "}
+                  <span className="text-gray-600 dark:text-gray-300 font-normal">
+                    متــر
+                  </span>
                 </p>
                 {/* <span className="text-gray-600 uppercase"></span> */}
               </TimelineContent>
@@ -195,7 +202,9 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 customVariants={revealVariants}
                 className="flex items-center gap-2 mb-2 sm:text-base text-xs"
               >
-                <span className="text-gray-600 font-bold">فوق</span>
+                <span className="text-gray-600 dark:text-gray-300 font-bold">
+                  فوق
+                </span>
                 <p className="text-primary-5 font-bold text-xl lg:text-3xl">
                   سطح <span className="lg:text-4xl">البحر</span>
                 </p>
@@ -214,7 +223,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
               customVariants={revealVariants}
               className="text-4xl md:text-5xl leading-[110%]! font-semibold text-gray-900 mb-8"
             ></TimelineContent> */}
-            <p className="sm:text-4xl md:text-5xl text-2xl leading-[170%]! font-semibold text-gray-900 mb-8">
+            <p className="sm:text-4xl md:text-5xl text-2xl leading-[170%]! font-semibold text-gray-900 dark:text-gray-300 mb-8">
               <VerticalCutReveal
                 splitBy="words"
                 staggerDuration={0.1}
@@ -236,7 +245,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
               animationNum={9}
               timelineRef={heroRef}
               customVariants={revealVariants}
-              className="grid md:grid-cols-2 gap-4 lg:gap-8 text-gray-600"
+              className="grid md:grid-cols-2 gap-4 lg:gap-8 text-gray-600 dark:text-gray-400"
             >
               <TimelineContent
                 as="div"
@@ -272,7 +281,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 animationNum={12}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="flex items-center gap-2 text-primary-1 text-2xl font-bold mb-2"
+                className="flex items-center gap-2 text-primary-1 dark:text-primary-5 text-2xl font-bold mb-2"
               >
                 <FaMapLocationDot />
                 منطقة الشفا الجبلية
@@ -282,7 +291,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 animationNum={13}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="text-gray-600 text-sm mb-8"
+                className="text-gray-600 dark:text-gray-400 text-sm mb-8"
               >
                 الطائف، المملكة العربية السعودية
               </TimelineContent>
@@ -294,7 +303,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 customVariants={revealVariants}
                 className="mb-6"
               >
-                <p className="text-gray-900 font-medium mb-4">
+                <p className="text-gray-900 dark:text-gray-400 font-medium mb-4">
                   هدفنا أن تشعر وكأنك في بيتك… <br /> لكن بإطلالة لا تتكرر
                 </p>
               </TimelineContent>
@@ -305,7 +314,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 animationNum={15}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="bg-primary-1 hover:bg-primary-2 shadow-lg shadow-primary-1 hover:shadow-primary-2 flex w-fit ml-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-white px-5 py-3 rounded-lg cursor-pointer font-semibold"
+                className="bg-primary-5 hover:bg-primary-2 shadow-2xl shadow-primary-5 hover:shadow-primary-2 flex w-fit ml-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-white px-5 py-3 rounded-lg cursor-pointer font-semibold"
               >
                 احجز الآن
                 <GoArrowUpRight className="rtl:rotate-270" />

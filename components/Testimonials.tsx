@@ -50,7 +50,7 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
         speedReveal={0.3}
         speedSegment={0.3}
         trigger={inView}
-        className="text-5xl lg:text-7xl font-semibold mb-14 text-primary-2"
+        className="text-5xl lg:text-7xl font-semibold mb-14 text-primary-5"
       >
         آراء النزلاء
       </TextEffect>
