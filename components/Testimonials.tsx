@@ -41,8 +41,18 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
     <section
       id="testimonials"
       ref={sectionRef}
-      className="bg-background relative flex flex-col items-center py-16"
+      className="bg-linear-to-t from-zinc-900 min-h-180 relative flex flex-col justify-center items-center py-16"
     >
+      {/* Copper Forge Background with Top Glow */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.25), transparent 70%)",
+        }}
+      />
+      {/* Your Content/Components */}
+
       <TextEffect
         per="word"
         preset="blur"
@@ -127,7 +137,7 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
                     animate={{ width: "100%" }}
                     exit={{ width: 0 }}
                     transition={{ duration: DURATION / 1000, ease: "linear" }}
-                    className="bg-brand absolute top-0 left-0 rtl:right-0 h-full rounded-lg bg-primary-1"
+                    className="bg-brand absolute top-0 left-0 rtl:right-0 h-full rounded-lg bg-primary-5"
                   />
                 )}
               </motion.span>

@@ -13,7 +13,7 @@ import {
   FaTiktok,
   FaMapLocationDot,
 } from "react-icons/fa6";
-import { IoLogoWhatsapp } from "react-icons/io";
+import { RiWhatsappLine } from "react-icons/ri";
 import { GoArrowUpRight } from "react-icons/go";
 
 interface AboutUsProps {
@@ -29,8 +29,8 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        delay: i * 0.4,
-        duration: 0.5,
+        delay: i * 0.1,
+        duration: 1,
       },
     }),
     hidden: {
@@ -44,7 +44,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        delay: i * 0.4,
+        delay: i * 0.2,
         duration: 0.5,
       },
     }),
@@ -73,7 +73,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
     {
       name: "Whatsapp",
       link: settings?.whatsapp,
-      icon: IoLogoWhatsapp,
+      icon: RiWhatsappLine,
     },
   ].filter((item) => item.link);
 
@@ -112,9 +112,9 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={name}
-                  className="md:size-8 sm:size-6 size-5 border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 hover:bg-primary-4 transition-colors duration-300 rounded-lg flex items-center justify-center  cursor-pointer"
+                  className="md:size-8 size-6 border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 hover:bg-primary-4 transition-colors duration-300 rounded-lg flex items-center justify-center  cursor-pointer"
                 >
-                  <Icon />
+                  <Icon className="max-sm:size-3" />
                 </TimelineContent>
               ))}
             </div>

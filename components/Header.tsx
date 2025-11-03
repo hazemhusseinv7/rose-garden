@@ -32,7 +32,7 @@ const Header = async () => {
         logo="/logo/logo-horizontal.svg"
         logoAlt="Logo"
         items={items}
-        baseColor="rgba(0,0,0,0.90)"
+        baseColor="oklch(92% 0.004 286.32)"
         menuColor="var(--color-primary-1)"
         buttonBgColor="var(--color-primary-1)"
         buttonTextColor="#fff"
