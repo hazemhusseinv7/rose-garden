@@ -123,14 +123,14 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
 
           <div className="**:[&>label]:block mt-4 space-y-6 *:space-y-3">
             <div>
-              <Label htmlFor="name" className="space-y-2">
+              <Label htmlFor="fullname" className="space-y-2">
                 الإسم
               </Label>
               <Input
                 type="text"
-                id="name"
+                id="fullname"
                 value={formData.fullname}
-                onChange={(e) => handleInputChange("phone", e.target.value)}
+                onChange={(e) => handleInputChange("fullname", e.target.value)}
                 required
               />
             </div>

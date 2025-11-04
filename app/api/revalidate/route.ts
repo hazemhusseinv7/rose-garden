@@ -1,9 +1,13 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 export async function POST() {
   try {
-    revalidateTag("content", "page");
+    console.log("Revalidation webhook triggered");
+
+    revalidatePath("/", "layout");
+
+    console.log("Entire site revalidated");
 
     return NextResponse.json({
       revalidated: true,

@@ -72,10 +72,10 @@ export const BackgroundMedia: React.FC<BackgroundMediaProps> = ({
     if (type === "video") {
       return (
         <video
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 pointer-events-none"
           ref={mediaRef}
           aria-hidden="true"
           muted
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300 pointer-events-none"
           autoPlay
           playsInline
           loop
