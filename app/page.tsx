@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import AboutUs from "@/components/AboutUs";
 import Facilities from "@/components/Facilities";
 import Testimonials from "@/components/Testimonials";
-import Contact from "@/components/ContactUs/Contact";
+// import Contact from "@/components/ContactUs/Contact";
 
 import {
   getSettingsData,
@@ -23,7 +23,7 @@ export default async function Home() {
       <AboutUs settings={settings} aboutUs={aboutUs} />
       <Facilities facilities={facilities} />
       <Testimonials testimonials={testimonials} />
-      <Contact />
+      {/* <Contact /> */}
     </main>
   );
 }
