@@ -76,8 +76,8 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
               والأنشطة
             </VerticalCutReveal>
           </h2>
-          <div className="sm:w-96 space-y-1.5 sm:pt-0 pt-4 text-zinc-300">
-            <p className="text-lg font-light text-end">
+          <div className="sm:w-96 space-y-5 sm:pt-0 pt-4 text-zinc-300">
+            <p className="text-lg font-light text-end text-zinc-50">
               في روز الحديقة الشفا نؤمن أن الهدوء رفاهية.
             </p>
             <VerticalCutReveal
