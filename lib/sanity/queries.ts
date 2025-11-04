@@ -141,6 +141,37 @@ export async function getTestimonialsData(): Promise<TestimonialsType | null> {
   }
 }
 
+export async function getFacilitiesData(): Promise<FacilitiesType | null> {
+  const query = `*[_type == "facilities"][0]{
+    accordions[] {
+      title,
+      items,
+      images[] {
+        asset-> {
+          _id,
+          url,
+          metadata {
+            dimensions
+          }
+        }
+      }
+    }
+  }`;
+
+  try {
+    return await sanityClient.fetch(
+      query,
+      {},
+      {
+        next: { revalidate: 0, tags: ["facilities"] },
+      }
+    );
+  } catch (error) {
+    console.error("Error fetching facilities data:", error);
+    return null;
+  }
+}
+
 export async function getBlogPosts(): Promise<BlogPost[] | null> {
   const query = `*[_type == "blog"] | order(publishedAt desc) {
     _id,

@@ -47,6 +47,14 @@ interface TestimonialsType {
   testimonials: { name: string; content: string }[];
 }
 
+interface FacilitiesType {
+  accordions: {
+    title: string;
+    items?: string[];
+    images?: ImageType[];
+  }[];
+}
+
 interface CategoryType {
   title: string;
   description?: any[];

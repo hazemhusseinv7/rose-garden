@@ -17,7 +17,7 @@ const Footer = async () => {
   const links = [
     {
       title: "المرافق والأنشطة",
-      href: "#",
+      href: "/facilities",
     },
     {
       title: "المدونة",
@@ -57,7 +57,7 @@ const Footer = async () => {
   ].filter((item) => item.link);
 
   return (
-    <footer className="py-16 md:py-20 relative">
+    <footer className="py-16 md:py-20 relative bg-zinc-900">
       {/* Copper Forge Background with Top Glow */}
       <div
         className="absolute inset-0 z-0"
