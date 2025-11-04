@@ -49,7 +49,7 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
     >
       <div className="sm:p-10 p-4 mx-auto min-h-screen w-full shadow-sm">
         <div className="max-w-7xl mx-auto sm:flex justify-between items-end">
-          <h1 className="xl:text-[10rem] lg:text-8xl md:text-7xl text-6xl text-zinc-50 pt-4 lg:-space-y-10 -space-y-4 leading-normal">
+          <h2 className="xl:text-[10rem] lg:text-8xl md:text-7xl text-6xl text-primary-1 pt-4 lg:-space-y-10 -space-y-4 leading-normal">
             <VerticalCutReveal
               splitBy="word"
               staggerDuration={0.05}
@@ -75,9 +75,9 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
             >
               والأنشطة
             </VerticalCutReveal>
-          </h1>
-          <div className="sm:w-96 space-y-1.5 sm:pt-0 pt-4">
-            <p className="text-sm font-semibold text-end">
+          </h2>
+          <div className="sm:w-96 space-y-1.5 sm:pt-0 pt-4 text-zinc-300">
+            <p className="text-lg font-light text-end">
               في روز الحديقة الشفا نؤمن أن الهدوء رفاهية.
             </p>
             <VerticalCutReveal
@@ -85,7 +85,7 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
               staggerDuration={0.1}
               staggerFrom="first"
               reverse={true}
-              wordLevelClassName="text-xs lg:text-base text-justify"
+              wordLevelClassName="text-sm text-light text-justify"
               transition={{
                 type: "spring",
                 stiffness: 250,
@@ -99,7 +99,7 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
           </div>
         </div>
         <div className="mt-3 max-w-7xl mx-auto py-10" ref={heroRef}>
-          <Accordion defaultValue="item-2">
+          <Accordion defaultValue="item-0">
             {facilities?.accordions.map(({ title, items, images }, i) => (
               <AccordionItem
                 key={i}
@@ -111,7 +111,7 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                   animationNum={i}
                   timelineRef={heroRef}
                   customVariants={revealVariants}
-                  className=" border-t border-neutral-800  py-2"
+                  className=" border-t border-neutral-800 py-2"
                 >
                   <AccordionHeader
                     customIcon
@@ -122,12 +122,12 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                         <Plus className="group-data-active:rotate-90 transition-all duration-300" />
                       </span>
 
-                      <h1 className="font-medium md:text-6xl sm:text-5xl text-3xl uppercase text-zinc-50 group-data-active:text-primary-1">
+                      <h1 className="font-medium md:text-6xl sm:text-5xl text-3xl uppercase text-zinc-400 group-data-active:text-primary-1">
                         {title}
                       </h1>
                     </div>
 
-                    <p className="pe-2 md:text-8xl sm:text-6xl text-3xl sm:font-extralight font-normal text-zinc-50 group-data-active:text-primary-1 uppercase">
+                    <p className="pe-2 md:text-8xl sm:text-6xl text-3xl sm:font-extralight font-normal text-zinc-400 group-data-active:text-primary-1 uppercase">
                       0{i + 1}
                     </p>
                   </AccordionHeader>
@@ -139,10 +139,10 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                 >
                   <AccordionPanel
                     className="space-y-4 w-full mx-auto bg-transparent data-active:bg-transparent px-0 text-zinc-50"
-                    galleryClassName="pt-2 px-0 bg-transparent ml-auto"
+                    galleryClassName="px-0 bg-transparent ml-auto"
                   >
                     {items && (
-                      <ul className="text-sm sm:text-xl px-4">
+                      <ul className="text-sm sm:text-xl px-5">
                         <TextEffect
                           per="line"
                           as="p"

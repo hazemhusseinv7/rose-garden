@@ -13,13 +13,15 @@ interface VideoType {
   size?: number;
 }
 
-interface SettingsType {
+type SettingsType = {
+  email: string;
+  phone: string;
   twitter?: string;
   tiktok?: string;
   instagram?: string;
+  snapchat?: string;
   whatsapp?: string;
-}
-
+};
 interface HeaderType {
   navigationItems: {
     title: string;

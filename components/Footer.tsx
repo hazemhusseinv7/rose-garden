@@ -7,6 +7,7 @@ import {
   FaXTwitter,
   FaTiktok,
   FaInstagram,
+  FaSnapchat,
   FaRegCopyright,
 } from "react-icons/fa6";
 import { RiWhatsappLine } from "react-icons/ri";
@@ -29,7 +30,7 @@ const Footer = async () => {
     },
     {
       title: "تواصل معنا",
-      href: "#",
+      href: "/contact",
     },
   ];
 
@@ -48,6 +49,11 @@ const Footer = async () => {
       name: "Instagram",
       link: settings?.instagram,
       icon: FaInstagram,
+    },
+    {
+      name: "Snapchat",
+      link: settings?.snapchat,
+      icon: FaSnapchat,
     },
     {
       name: "Whatsapp",

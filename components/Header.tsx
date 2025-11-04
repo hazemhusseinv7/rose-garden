@@ -10,7 +10,7 @@ const Header = async () => {
     const colors = [
       "var(--color-primary-1)",
       "var(--color-primary-2)",
-      "var(--color-primary-4)",
+      "var(--color-primary-5)",
     ];
 
     return {
@@ -29,7 +29,7 @@ const Header = async () => {
   return (
     <header>
       <CardNav
-        logo="/logo/logo-horizontal.svg"
+        logo="/logo/logo-horizontal-alt.svg"
         logoAlt="Logo"
         items={items}
         baseColor="oklch(92% 0.004 286.32)"

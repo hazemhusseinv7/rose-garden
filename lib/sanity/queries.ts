@@ -2,9 +2,12 @@ import { sanityClient } from "@/lib/sanity/client";
 
 export async function getSettingsData(): Promise<SettingsType | null> {
   const query = `*[_type == "settings"][0]{
+    email,
+    phone, 
     twitter,
     tiktok,
     instagram,
+    snapchat,
     whatsapp
   }`;
 
@@ -13,7 +16,7 @@ export async function getSettingsData(): Promise<SettingsType | null> {
       query,
       {},
       {
-        next: { revalidate: 0, tags: ["settings", "content"] },
+        next: { revalidate: 3600, tags: ["settings", "content"] },
       }
     );
   } catch (error) {
@@ -47,7 +50,7 @@ export async function getHeaderData(): Promise<HeaderType | null> {
       query,
       {},
       {
-        next: { revalidate: 0, tags: ["header"] },
+        next: { revalidate: 3600, tags: ["header"] },
       }
     );
   } catch (error) {
@@ -83,7 +86,7 @@ export async function getHeroData(): Promise<HeroType | null> {
       query,
       {},
       {
-        next: { revalidate: 0, tags: ["hero", "content"] },
+        next: { revalidate: 3600, tags: ["hero", "content"] },
       }
     );
   } catch (error) {
@@ -110,7 +113,7 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
       query,
       {},
       {
-        next: { revalidate: 0, tags: ["aboutUs"] },
+        next: { revalidate: 3600, tags: ["aboutUs"] },
       }
     );
   } catch (error) {
@@ -132,7 +135,7 @@ export async function getTestimonialsData(): Promise<TestimonialsType | null> {
       query,
       {},
       {
-        next: { revalidate: 0, tags: ["testimonials"] },
+        next: { revalidate: 3600, tags: ["testimonials"] },
       }
     );
   } catch (error) {
@@ -163,7 +166,7 @@ export async function getFacilitiesData(): Promise<FacilitiesType | null> {
       query,
       {},
       {
-        next: { revalidate: 0, tags: ["facilities"] },
+        next: { revalidate: 3600, tags: ["facilities"] },
       }
     );
   } catch (error) {
@@ -188,7 +191,7 @@ export async function getBlogPosts(): Promise<BlogPost[] | null> {
       query,
       {},
       {
-        next: { revalidate: 0, tags: ["blog", "content"] },
+        next: { revalidate: 3600, tags: ["blog", "content"] },
       }
     );
   } catch (error) {
@@ -214,7 +217,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
       query,
       { slug },
       {
-        next: { revalidate: 0, tags: [`blog-post-${slug}`, "content"] },
+        next: { revalidate: 3600, tags: [`blog-post-${slug}`, "content"] },
       }
     );
   } catch (error) {

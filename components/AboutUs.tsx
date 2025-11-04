@@ -11,6 +11,7 @@ import {
   FaXTwitter,
   FaInstagram,
   FaTiktok,
+  FaSnapchat,
   FaMapLocationDot,
 } from "react-icons/fa6";
 import { RiWhatsappLine } from "react-icons/ri";
@@ -69,6 +70,11 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
       name: "Instagram",
       link: settings?.instagram,
       icon: FaInstagram,
+    },
+    {
+      name: "Snapchat",
+      link: settings?.snapchat,
+      icon: FaSnapchat,
     },
     {
       name: "Whatsapp",

@@ -278,7 +278,7 @@ export function AccordionPanel({
               bounce: 0,
             }}
             className={cn(
-              "px-3 bg-transparent  pb-4 space-y-2",
+              "py-4 bg-transparent space-y-8",
               galleryClassName
             )}
           >

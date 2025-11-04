@@ -41,7 +41,7 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
     <section
       id="testimonials"
       ref={sectionRef}
-      className="bg-linear-to-t from-zinc-900 min-h-180 relative flex flex-col justify-center items-center py-16"
+      className="bg-linear-to-t from-zinc-900 lg:min-h-180 relative flex flex-col justify-center items-center py-16"
     >
       {/* Copper Forge Background with Top Glow */}
       <div
