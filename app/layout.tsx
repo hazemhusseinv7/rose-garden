@@ -5,6 +5,7 @@ import { Providers } from "@/app/providers";
 import { cn } from "@/lib/utils";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ReservationButton from "@/components/ReservationButton/ReservationButton";
 
 const notoKufiArabic = Noto_Kufi_Arabic({
   variable: "--font-noto-kufi-arabic",
@@ -32,13 +33,14 @@ export default function RootLayout({
         className={cn(
           notoKufiArabic.variable,
           lora.variable,
-          "font-noto-kufi-arabic antialiased"
+          "font-noto-kufi-arabic antialiased relative"
         )}
       >
         <Providers>
           <Header />
           {children}
           <Footer />
+          <ReservationButton />
         </Providers>
       </body>
     </html>

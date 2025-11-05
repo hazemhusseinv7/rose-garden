@@ -287,7 +287,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 animationNum={12}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="flex items-center gap-2 text-primary-1 dark:text-primary-5 text-2xl font-bold mb-2"
+                className="flex items-center gap-2 text-primary-5 dark:text-primary-1 text-2xl font-bold mb-2"
               >
                 <FaMapLocationDot />
                 منطقة الشفا الجبلية
@@ -320,7 +320,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 animationNum={15}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="bg-primary-5 hover:bg-primary-2 shadow-2xl shadow-primary-5 hover:shadow-primary-2 flex w-fit ml-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-white px-5 py-3 rounded-lg cursor-pointer font-semibold"
+                className="bg-primary-1 hover:bg-primary-2 shadow-2xl shadow-primary-1 hover:shadow-primary-2 flex w-fit ml-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-white px-5 py-3 rounded-lg cursor-pointer font-semibold"
               >
                 احجز الآن
                 <GoArrowUpRight className="rtl:rotate-270" />

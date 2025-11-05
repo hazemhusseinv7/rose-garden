@@ -46,8 +46,8 @@ const Carousel = ({
   .Carousal_005 .swiper-pagination-bullet {
     background-color: var(--color-primary-1) !important;
   }
- 
-  `;
+`;
+
   return (
     <motion.div
       initial={{ opacity: 0, translateY: 20 }}
@@ -69,18 +69,18 @@ const Carousel = ({
         <Swiper
           spaceBetween={spaceBetween}
           autoplay={
-            autoplay
+            autoplay && images.length > 1
               ? {
                   delay: 1500,
                   disableOnInteraction: true,
                 }
               : false
           }
-          effect="creative"
+          effect={images.length > 1 ? "creative" : "fade"}
           grabCursor={true}
           slidesPerView="auto"
           centeredSlides={true}
-          loop={loop}
+          loop={loop && images.length > 2}
           pagination={
             showPagination
               ? {
@@ -111,7 +111,7 @@ const Carousel = ({
           {images.map((image, index) => (
             <SwiperSlide key={index}>
               <img
-                className="h-full w-full scale-105 rounded-3xl object-cover"
+                className="size-full scale-105 rounded-3xl object-cover"
                 src={urlFor(image).url()}
                 alt="Image"
               />
@@ -120,10 +120,10 @@ const Carousel = ({
           {showNavigation && (
             <div>
               <div className="swiper-button-next after:hidden">
-                <ChevronRightIcon className="h-6 w-6 text-white" />
+                <ChevronRightIcon className="size-6 text-white" />
               </div>
               <div className="swiper-button-prev after:hidden">
-                <ChevronLeftIcon className="h-6 w-6 text-white" />
+                <ChevronLeftIcon className="size-6 text-white" />
               </div>
             </div>
           )}

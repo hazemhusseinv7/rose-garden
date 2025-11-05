@@ -117,14 +117,14 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                     customIcon
                     className="hover:no-underline p-0  py-2 relative data-active:bg-transparent hover:bg-transparent text-black sm:text-base text-sm"
                   >
-                    <div className="lg:w-160 md:w-120 sm:w-96 flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                       <span className="relative group-data-active:rotate-90 text-neutral-600 p-2 -translate-x-1 rounded-xl">
                         <Plus className="group-data-active:rotate-90 transition-all duration-300" />
                       </span>
 
-                      <h1 className="font-medium md:text-6xl sm:text-5xl text-3xl uppercase text-zinc-400 group-data-active:text-primary-1">
+                      <span className="block font-medium md:text-6xl sm:text-5xl text-2xl uppercase text-zinc-400 group-data-active:text-primary-1">
                         {title}
-                      </h1>
+                      </span>
                     </div>
 
                     <p className="pe-2 md:text-8xl sm:text-6xl text-3xl sm:font-extralight font-normal text-zinc-400 group-data-active:text-primary-1 uppercase">
@@ -142,11 +142,11 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                     galleryClassName="px-0 bg-transparent ml-auto"
                   >
                     {items && (
-                      <ul className="text-sm sm:text-xl px-5">
+                      <div className="text-sm sm:text-xl px-5">
                         <TextEffect
                           per="line"
                           as="p"
-                          segmentWrapperClassName="overflow-hidden block"
+                          segmentWrapperClassName="overflow-hidden block mb-4"
                           variants={{
                             container: {
                               hidden: { opacity: 0 },
@@ -172,7 +172,7 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                         >
                           {items?.map((item) => item).join("\n")}
                         </TextEffect>
-                      </ul>
+                      </div>
                     )}
 
                     {images && (
