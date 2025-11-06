@@ -43,10 +43,7 @@ interface HeroType {
 
 interface AboutUsType {
   image: ImageType;
-}
-
-interface TestimonialsType {
-  testimonials: { name: string; content: string }[];
+  images: ImageType[];
 }
 
 interface FacilitiesType {
@@ -55,6 +52,10 @@ interface FacilitiesType {
     items?: string[];
     images?: ImageType[];
   }[];
+}
+
+interface TestimonialsType {
+  testimonials: { name: string; content: string }[];
 }
 
 interface CategoryType {

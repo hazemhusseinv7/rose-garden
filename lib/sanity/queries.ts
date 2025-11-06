@@ -106,6 +106,15 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
         }
       }
     },
+    images[] {
+      asset-> {
+        _id,
+        url,
+        metadata {
+          dimensions
+        }
+      }
+    }
   }`;
 
   try {
@@ -118,28 +127,6 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
     );
   } catch (error) {
     console.error("Error fetching about us data:", error);
-    return null;
-  }
-}
-
-export async function getTestimonialsData(): Promise<TestimonialsType | null> {
-  const query = `*[_type == "testimonials"][0]{
-    testimonials[] {
-      name,
-      content
-    }
-  }`;
-
-  try {
-    return await sanityClient.fetch(
-      query,
-      {},
-      {
-        next: { revalidate: 3600, tags: ["testimonials"] },
-      }
-    );
-  } catch (error) {
-    console.error("Error fetching testimonials data:", error);
     return null;
   }
 }
@@ -171,6 +158,28 @@ export async function getFacilitiesData(): Promise<FacilitiesType | null> {
     );
   } catch (error) {
     console.error("Error fetching facilities data:", error);
+    return null;
+  }
+}
+
+export async function getTestimonialsData(): Promise<TestimonialsType | null> {
+  const query = `*[_type == "testimonials"][0]{
+    testimonials[] {
+      name,
+      content
+    }
+  }`;
+
+  try {
+    return await sanityClient.fetch(
+      query,
+      {},
+      {
+        next: { revalidate: 3600, tags: ["testimonials"] },
+      }
+    );
+  } catch (error) {
+    console.error("Error fetching testimonials data:", error);
     return null;
   }
 }

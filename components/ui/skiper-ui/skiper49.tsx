@@ -3,20 +3,27 @@
 import Image from "next/image";
 
 import { motion } from "framer-motion";
-import { Autoplay, EffectCreative, Pagination } from "swiper/modules";
+import {
+  Autoplay,
+  EffectCoverflow,
+  Navigation,
+  Pagination,
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-creative";
+import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css";
+import "swiper/css/effect-cards";
 
 import { urlFor } from "@/lib/sanity/image";
+
 
 import { cn } from "@/lib/utils";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
-const Carousel = ({
+const Carousel_003 = ({
   images,
   className,
   showPagination = false,
@@ -34,22 +41,23 @@ const Carousel = ({
   spaceBetween?: number;
 }) => {
   const css = `
-  .Carousal_005 {
+  .Carousal_003 {
     width: 100%;
+    height: 350px;
     padding-bottom: 50px !important;
   }
   
-  .Carousal_005 .swiper-slide {
+  .Carousal_003 .swiper-slide {
     background-position: center;
     background-size: cover;
-     border-radius: 25px;
+    width: 300px;
   }
 
-  .Carousal_005 .swiper-pagination-bullet {
+  .swiper-pagination-bullet {
     background-color: var(--color-primary-1) !important;
   }
-`;
 
+`;
   return (
     <motion.div
       initial={{ opacity: 0, translateY: 20 }}
@@ -58,7 +66,7 @@ const Carousel = ({
         duration: 0.3,
         delay: 0.5,
       }}
-      className={cn("relative w-full px-5 mx-auto", className)}
+      className={cn("relative w-full max-w-4xl px-5", className)}
     >
       <style>{css}</style>
 
@@ -71,18 +79,25 @@ const Carousel = ({
         <Swiper
           spaceBetween={spaceBetween}
           autoplay={
-            autoplay && images.length > 1
+            autoplay
               ? {
                   delay: 1500,
                   disableOnInteraction: true,
                 }
               : false
           }
-          effect={images.length > 1 ? "creative" : "fade"}
+          effect="coverflow"
           grabCursor={true}
           slidesPerView="auto"
           centeredSlides={true}
-          loop={loop && images.length > 2}
+          loop={loop}
+          coverflowEffect={{
+            rotate: 40,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
           pagination={
             showPagination
               ? {
@@ -98,36 +113,29 @@ const Carousel = ({
                 }
               : false
           }
-          className="Carousal_005 h-80 lg:h-150"
-          creativeEffect={{
-            prev: {
-              shadow: true,
-              translate: [0, 0, -400],
-            },
-            next: {
-              translate: ["100%", 0, 0],
-            },
-          }}
-          modules={[EffectCreative, Pagination, Autoplay]}
+          className="Carousal_003"
+          modules={[EffectCoverflow, Autoplay, Pagination, Navigation]}
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
-              <Image
-                className="size-full scale-105 rounded-3xl object-cover"
-                src={urlFor(image).url()}
-                width={1302}
-                height={577}
-                alt="Image"
-              />
+              {
+                <Image
+                  className="h-full w-full object-cover"
+                  src={urlFor(image).url()}
+                  width={300}
+                  height={300}
+                  alt="Image"
+                />
+              }
             </SwiperSlide>
           ))}
           {showNavigation && (
             <div>
               <div className="swiper-button-next after:hidden">
-                <ChevronRightIcon className="size-6 text-white" />
+                <ChevronRightIcon className="h-6 w-6 text-white" />
               </div>
               <div className="swiper-button-prev after:hidden">
-                <ChevronLeftIcon className="size-6 text-white" />
+                <ChevronLeftIcon className="h-6 w-6 text-white" />
               </div>
             </div>
           )}
@@ -137,4 +145,4 @@ const Carousel = ({
   );
 };
 
-export { Carousel };
+export { Carousel_003 };
