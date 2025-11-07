@@ -2,10 +2,15 @@
 
 import React, { useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+
+import { useTranslations } from "next-intl";
 
 import { gsap } from "gsap";
+
+import ChangeLang from "@/components/ChangeLang";
+
 import { GoArrowUpRight } from "react-icons/go";
-import Image from "next/image";
 
 type CardNavLink = {
   label: string;
@@ -43,6 +48,8 @@ const CardNav: React.FC<CardNavProps> = ({
   buttonBgColor,
   buttonTextColor,
 }) => {
+  const t = useTranslations("Header");
+
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -163,6 +170,21 @@ const CardNav: React.FC<CardNavProps> = ({
     if (el) cardsRef.current[i] = el;
   };
 
+  const closeMenu = () => {
+    if (isExpanded) {
+      const tl = tlRef.current;
+      if (tl) {
+        setIsHamburgerOpen(false);
+        tl.eventCallback("onReverseComplete", () => setIsExpanded(false));
+        tl.reverse();
+      }
+    }
+  };
+
+  const handleLinkClick = () => {
+    closeMenu();
+  };
+
   return (
     <div
       className={`card-nav-container absolute left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-99 top-[1.2em] md:top-[2em] ${className}`}
@@ -211,14 +233,18 @@ const CardNav: React.FC<CardNavProps> = ({
             />
           </Link>
 
-          <Link
-            href="/reservation"
-            type="button"
-            className="card-nav-cta-button inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center"
-            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
-          >
-            احجز الآن
-          </Link>
+          <div className="h-full flex items-center gap-2">
+            <ChangeLang className="light text-zinc-800" />
+
+            <Link
+              href="/reservation"
+              type="button"
+              className="card-nav-cta-button inline-flex border-0 rounded-[calc(0.75rem-0.2rem)] px-4 h-full font-medium cursor-pointer transition-colors duration-300 items-center"
+              style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            >
+              {t("button")}
+            </Link>
+          </div>
         </div>
 
         <div
@@ -246,8 +272,7 @@ const CardNav: React.FC<CardNavProps> = ({
                     className="nav-card-link inline-flex items-center gap-1.5 no-underline cursor-pointer transition-opacity duration-300 hover:opacity-75 text-[15px] md:text-[16px]"
                     href={lnk.href}
                     aria-label={lnk.ariaLabel}
-                    target={idx === 2 ? "_blank" : undefined}
-                    rel={idx === 2 ? "noopener noreferrer" : undefined}
+                    onClick={handleLinkClick}
                   >
                     <GoArrowUpRight
                       className="nav-card-link-icon shrink-0"

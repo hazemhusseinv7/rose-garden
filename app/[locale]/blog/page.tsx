@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
+import { useLocale, useTranslations } from "next-intl";
+
 import { Pagination } from "@heroui/react";
 
 import Loading from "@/components/Loading";
@@ -12,11 +14,14 @@ import Loading from "@/components/Loading";
 import { getBlogPosts } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 
-import { GoChevronLeft } from "react-icons/go";
+import { GoChevronRight } from "react-icons/go";
 
 const POSTS_PER_PAGE = 6;
 
 export default function Page() {
+  const locale = useLocale();
+  const t = useTranslations("Blog");
+
   const [allPosts, setAllPosts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +29,7 @@ export default function Page() {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const posts = await getBlogPosts();
+        const posts = await getBlogPosts(locale);
         setAllPosts(posts || []);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -48,8 +53,8 @@ export default function Page() {
       <div className="max-w-340 px-4 pb-10 sm:px-6 lg:px-8 lg:pb-14 mx-auto">
         {/* Title */}
         <div className="relative flex w-full flex-col items-center justify-center pt-32 sm:pt-40 pb-32">
-          <h1 className="after:from-background after:to-foreground relative max-w-[12ch] text-4xl lg:text-8xl uppercase leading-tight opacity-70 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-gradient-to-b after:content-['']">
-            المدونة
+          <h1 className="after:from-background after:to-foreground relative max-w-[12ch] text-4xl lg:text-8xl uppercase leading-tight opacity-70 after:absolute after:left-1/2 after:top-full after:h-16 after:w-px after:bg-linear-to-b after:content-['']">
+            {t("title")}
           </h1>
         </div>
         {/* End Title */}
@@ -58,7 +63,7 @@ export default function Page() {
         ) : !allPosts || allPosts.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-xl text-gray-600 dark:text-neutral-400">
-              لا توجد مقالات متاحة حالياً
+              {t("not-found")}
             </p>
           </div>
         ) : (
@@ -75,7 +80,7 @@ export default function Page() {
                         href={`/blog/${slug.current}`}
                         key={_id}
                       >
-                        <div className="aspect-[16/10]">
+                        <div className="aspect-16/10">
                           <Image
                             className="size-full object-cover rounded-xl"
                             width={400}
@@ -88,8 +93,8 @@ export default function Page() {
                           {title}
                         </span>
                         <div className="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold text-gray-800 dark:text-neutral-200">
-                          اقرأ المزيد
-                          <GoChevronLeft className="shrink-0 size-4 transition ease-in-out group-hover:-translate-x-1 group-focus:translate-x-1" />
+                          {t("read-more")}
+                          <GoChevronRight className="shrink-0 size-4 transition ease-in-out group-hover:translate-x-1 group-focus:-translate-x-1 rtl:group-hover:-translate-x-1 rtl:group-focus:translate-x-1 rtl:rotate-180" />
                         </div>
                       </Link>
                       // End Card

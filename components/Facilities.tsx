@@ -1,5 +1,9 @@
 "use client";
 
+import { useRef } from "react";
+
+import { useTranslations } from "next-intl";
+
 import {
   Accordion,
   AccordionHeader,
@@ -13,7 +17,6 @@ import { TextEffect } from "@/components/motion-primitives/text-effect";
 
 import { cn } from "@/lib/utils";
 import { Plus } from "lucide-react";
-import { useRef } from "react";
 
 interface FacilitiesProps {
   facilities: FacilitiesType | null;
@@ -21,6 +24,8 @@ interface FacilitiesProps {
 }
 
 const Facilities = ({ facilities, className }: FacilitiesProps) => {
+  const t = useTranslations("Facilities");
+
   const heroRef = useRef<HTMLDivElement>(null);
   const revealVariants = {
     visible: (i: number) => ({
@@ -60,12 +65,12 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                 damping: 21,
               }}
             >
-              المرافق
+              {t("title.item-1")}
             </VerticalCutReveal>
             <VerticalCutReveal
               splitBy="word"
               staggerDuration={0.05}
-              containerClassName="lg:pl-32 md:pl-16 pl-6 leading-[140%]"
+              containerClassName="lg:pl-32 md:pl-16 pl-6 leading-[140%] text-nowrap" 
               staggerFrom="first"
               transition={{
                 type: "spring",
@@ -73,12 +78,12 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                 damping: 21,
               }}
             >
-              والأنشطة
+              {t("title.item-2")}
             </VerticalCutReveal>
           </h2>
           <div className="sm:w-96 space-y-5 sm:pt-0 pt-4 text-zinc-300">
             <p className="text-lg font-light text-end text-zinc-50">
-              في روز الحديقة الشفا نؤمن أن الهدوء رفاهية.
+              {t("description.item-1")}
             </p>
             <VerticalCutReveal
               splitBy="words"
@@ -93,8 +98,7 @@ const Facilities = ({ facilities, className }: FacilitiesProps) => {
                 delay: 0,
               }}
             >
-              أنشأنا هذا المكان ليكون وجهتك بين الغيوم، حيث يجتمع جمال الطبيعة
-              مع راحة الإقامة.
+              {t("description.item-1")}
             </VerticalCutReveal>
           </div>
         </div>

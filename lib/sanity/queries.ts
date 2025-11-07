@@ -25,8 +25,10 @@ export async function getSettingsData(): Promise<SettingsType | null> {
   }
 }
 
-export async function getHeaderData(): Promise<HeaderType | null> {
-  const query = `*[_type == "header"][0]{
+export async function getHeaderData(
+  lang: string = "en"
+): Promise<HeaderType | null> {
+  const query = `*[_type == "header" && language == $lang][0]{
     navigationItems[] {
       title,
       image {
@@ -48,7 +50,7 @@ export async function getHeaderData(): Promise<HeaderType | null> {
   try {
     return await sanityClient.fetch(
       query,
-      {},
+      { lang },
       {
         next: { revalidate: 3600, tags: ["header"] },
       }
@@ -59,8 +61,10 @@ export async function getHeaderData(): Promise<HeaderType | null> {
   }
 }
 
-export async function getHeroData(): Promise<HeroType | null> {
-  const query = `*[_type == "main"][0]{
+export async function getHeroData(
+  lang: string = "en"
+): Promise<HeroType | null> {
+  const query = `*[_type == "main" && language == $lang][0]{
     title,
     backgroundVideo {
       asset-> {
@@ -84,7 +88,7 @@ export async function getHeroData(): Promise<HeroType | null> {
   try {
     return await sanityClient.fetch(
       query,
-      {},
+      { lang },
       {
         next: { revalidate: 3600, tags: ["hero", "content"] },
       }
@@ -131,8 +135,10 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
   }
 }
 
-export async function getFacilitiesData(): Promise<FacilitiesType | null> {
-  const query = `*[_type == "facilities"][0]{
+export async function getFacilitiesData(
+  lang: string = "en"
+): Promise<FacilitiesType | null> {
+  const query = `*[_type == "facilities" && language == $lang][0]{
     accordions[] {
       title,
       items,
@@ -151,7 +157,7 @@ export async function getFacilitiesData(): Promise<FacilitiesType | null> {
   try {
     return await sanityClient.fetch(
       query,
-      {},
+      { lang },
       {
         next: { revalidate: 3600, tags: ["facilities"] },
       }
@@ -162,8 +168,10 @@ export async function getFacilitiesData(): Promise<FacilitiesType | null> {
   }
 }
 
-export async function getTestimonialsData(): Promise<TestimonialsType | null> {
-  const query = `*[_type == "testimonials"][0]{
+export async function getTestimonialsData(
+  lang: string = "en"
+): Promise<TestimonialsType | null> {
+  const query = `*[_type == "testimonials" && language == $lang][0]{
     testimonials[] {
       name,
       content
@@ -173,7 +181,7 @@ export async function getTestimonialsData(): Promise<TestimonialsType | null> {
   try {
     return await sanityClient.fetch(
       query,
-      {},
+      { lang },
       {
         next: { revalidate: 3600, tags: ["testimonials"] },
       }
@@ -184,8 +192,10 @@ export async function getTestimonialsData(): Promise<TestimonialsType | null> {
   }
 }
 
-export async function getBlogPosts(): Promise<BlogPost[] | null> {
-  const query = `*[_type == "blog"] | order(publishedAt desc) {
+export async function getBlogPosts(
+  lang: string = "en"
+): Promise<BlogPost[] | null> {
+  const query = `*[_type == "blog" && language == $lang] | order(publishedAt desc) {
     _id,
     title,
     slug,
@@ -198,7 +208,7 @@ export async function getBlogPosts(): Promise<BlogPost[] | null> {
   try {
     return await sanityClient.fetch(
       query,
-      {},
+      { lang },
       {
         next: { revalidate: 3600, tags: ["blog", "content"] },
       }
@@ -209,8 +219,11 @@ export async function getBlogPosts(): Promise<BlogPost[] | null> {
   }
 }
 
-export async function getBlogPost(slug: string): Promise<BlogPost | null> {
-  const query = `*[_type == "blog" && slug.current == $slug][0] {
+export async function getBlogPost(
+  slug: string,
+  lang: string = "en"
+): Promise<BlogPost | null> {
+  const query = `*[_type == "blog" && slug.current == $slug && language == $lang][0] {
     _id,
     title,
     slug,
@@ -224,7 +237,7 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
   try {
     return await sanityClient.fetch(
       query,
-      { slug },
+      { slug, lang },
       {
         next: { revalidate: 3600, tags: [`blog-post-${slug}`, "content"] },
       }

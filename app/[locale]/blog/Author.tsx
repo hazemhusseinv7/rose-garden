@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 
+import { useTranslations } from "next-intl";
+
 import {
   Modal,
   ModalContent,
@@ -25,6 +27,8 @@ const Author = ({
 }: AuthorType & {
   className?: string;
 }) => {
+  const t = useTranslations("Blog");
+
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -104,7 +108,7 @@ const Author = ({
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
-                  إغلاق
+                  {t("close")}
                 </Button>
               </ModalFooter>
             </>

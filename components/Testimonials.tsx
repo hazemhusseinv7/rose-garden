@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "motion/react";
 
+import { useTranslations } from "next-intl";
+
 import { TextEffect } from "@/components/motion-primitives/text-effect";
 
 import { FaUser } from "react-icons/fa6";
@@ -16,6 +18,8 @@ interface TestimonialsProps {
 }
 
 const Testimonials = ({ testimonials }: TestimonialsProps) => {
+  const t = useTranslations("Testimonials");
+
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -62,7 +66,7 @@ const Testimonials = ({ testimonials }: TestimonialsProps) => {
         trigger={inView}
         className="text-5xl lg:text-7xl font-semibold mb-14 text-primary-5"
       >
-        آراء النزلاء
+        {t("title")}
       </TextEffect>
 
       <div className="flex w-full max-w-5xl flex-col items-center justify-center px-4">

@@ -3,8 +3,10 @@ import { TextEffect } from "./motion-primitives/text-effect";
 import BackgroundMedia from "./ui/bg-media";
 import { cn } from "@/lib/utils";
 
-const Hero = async () => {
-  const data: HeroType | null = await getHeroData();
+const Hero = async ({ params }: { params: Promise<{ locale: string }> }) => {
+  const { locale } = await params;
+
+  const data: HeroType | null = await getHeroData(locale);
 
   if (!data) return;
 

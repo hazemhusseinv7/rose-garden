@@ -2,6 +2,8 @@
 
 import { useRef } from "react";
 
+import { useTranslations } from "next-intl";
+
 import { TimelineContent } from "@/components/ui/timeline-animation";
 import VerticalCutReveal from "@/components/ui/vertical-cut-reveal";
 
@@ -26,6 +28,8 @@ interface AboutUsProps {
 }
 
 const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
+  const t = useTranslations("AboutUs");
+
   const heroRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const revealVariants = {
@@ -97,7 +101,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
       className="bg-linear-to-t from-muted-foreground/5 relative"
       ref={heroRef}
     >
-      <div className="max-w-6xl mx-auto px-8 pt-20 pb-32">
+      <div className="relative z-10 max-w-6xl mx-auto px-8 pt-20 pb-32">
         <div className="relative">
           {/* Header with social icons */}
           <div className="flex justify-between items-center mb-8 w-[85%] absolute left-0 lg:top-2 md:top-0 sm:-top-2 -top-3 z-10">
@@ -109,7 +113,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 customVariants={revealVariants}
                 className="text-sm lg:text-2xl font-medium text-gray-600 dark:text-gray-300"
               >
-                من نحن
+                {t("title")}
               </TimelineContent>
             </div>
             <div className="flex gap-4">
@@ -124,7 +128,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={name}
-                  className="md:size-8 size-6 border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 hover:bg-primary-4 transition-colors duration-300 rounded-lg flex items-center justify-center  cursor-pointer"
+                  className="md:size-8 size-6 border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 hover:bg-primary-4 transition-colors duration-300 rounded-lg flex items-center justify-center cursor-pointer"
                 >
                   <Icon className="max-sm:size-3" />
                 </TimelineContent>
@@ -174,17 +178,21 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
             >
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
                 <span className="text-primary-5 font-bold">
-                  7500 م<sup>2</sup>
+                  {t("highlight.content-2.item-1")}{" "}
+                  {t("highlight.content-2.item-2")}
+                  <sup>2</sup>
                 </span>
                 <span className="text-gray-600 dark:text-gray-300">
-                  مساحة المنتجع الكلية
+                  {t("highlight.content-2.item-3")}
                 </span>
                 <span className="text-gray-300">|</span>
               </div>
               <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                <span className="text-primary-5 font-bold">7</span>
+                <span className="text-primary-5 font-bold">
+                  {t("highlight.content-3.item-1")}
+                </span>
                 <span className="text-gray-600 dark:text-gray-300">
-                  فلل فاخرة مستقلة
+                  {t("highlight.content-3.item-2")}
                 </span>
               </div>
             </TimelineContent>
@@ -197,9 +205,9 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 className="flex lg:text-4xl sm:text-3xl text-2xl items-center gap-2 mb-2"
               >
                 <p className="text-primary-5 font-semibold">
-                  2200{" "}
+                  {t("highlight.content-1.item-1")}{" "}
                   <span className="text-gray-600 dark:text-gray-300 font-normal">
-                    متــر
+                    {t("highlight.content-1.item-2")}
                   </span>
                 </p>
                 {/* <span className="text-gray-600 uppercase"></span> */}
@@ -212,10 +220,10 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 className="flex items-center gap-2 mb-2 sm:text-base text-xs"
               >
                 <span className="text-gray-600 dark:text-gray-300 font-bold">
-                  فوق
+                  {t("highlight.content-1.item-3")}
                 </span>
                 <p className="text-primary-5 font-bold text-xl lg:text-3xl">
-                  سطح <span className="lg:text-4xl">البحر</span>
+                  {t("highlight.content-1.item-4")}
                 </p>
                 <span className="text-gray-300 lg:hidden block">|</span>
               </TimelineContent>
@@ -245,7 +253,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                   delay: 3,
                 }}
               >
-                في روز الحديقة الشفا نؤمن أن الهدوء رفاهية.
+                {t("description.item-1")}
               </VerticalCutReveal>
             </p>
 
@@ -264,8 +272,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 className="sm:text-base text-xs"
               >
                 <p className="leading-relaxed text-justify">
-                  أنشأنا هذا المكان ليكون وجهتك بين الغيوم، حيث يجتمع جمال
-                  الطبيعة مع راحة الإقامة.
+                  {t("description.item-2")}
                 </p>
               </TimelineContent>
               <TimelineContent
@@ -276,8 +283,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 className="sm:text-base text-xs"
               >
                 <p className="leading-relaxed text-justify">
-                  كل فيلا صُممت لتمنحك خصوصية وراحة تامة، بمساحات أنيقة وإطلالة
-                  تبعث الطمأنينة.
+                  {t("description.item-3")}
                 </p>
               </TimelineContent>
             </TimelineContent>
@@ -293,16 +299,16 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 className="flex items-center gap-2 text-primary-5 dark:text-primary-1 text-2xl font-bold mb-2"
               >
                 <FaMapLocationDot />
-                منطقة الشفا الجبلية
+                {t("location.item-1")}
               </TimelineContent>
               <TimelineContent
                 as="div"
                 animationNum={13}
                 timelineRef={heroRef}
                 customVariants={revealVariants}
-                className="text-gray-600 dark:text-gray-400 text-sm mb-8"
+                className="text-gray-600 dark:text-gray-400 text-sm mb-8 ltr:text-left"
               >
-                الطائف، المملكة العربية السعودية
+                {t("location.item-2")}
               </TimelineContent>
 
               <TimelineContent
@@ -313,7 +319,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 className="mb-6"
               >
                 <p className="text-gray-900 dark:text-gray-400 font-medium mb-4">
-                  هدفنا أن تشعر وكأنك في بيتك… <br /> لكن بإطلالة لا تتكرر
+                  {t("description.item-4")} <br /> {t("description.item-5")}
                 </p>
               </TimelineContent>
 
@@ -325,7 +331,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
                 customVariants={revealVariants}
                 className="bg-primary-1 hover:bg-primary-2 shadow-2xl shadow-primary-1 hover:shadow-primary-2 flex w-fit ml-auto gap-2 hover:gap-4 transition-all duration-300 ease-in-out text-white px-5 py-3 rounded-lg cursor-pointer font-semibold"
               >
-                احجز الآن
+                {t("button")}
                 <GoArrowUpRight className="rtl:rotate-270" />
               </TimelineContent>
             </div>
@@ -348,7 +354,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
               trigger={inView}
               className="text-5xl lg:text-7xl font-semibold text-primary-1"
             >
-              7 فلل فاخرة
+              {t("slider.title")}
             </TextEffect>
 
             <TextEffect
@@ -360,8 +366,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
               trigger={inView}
               className="text-zinc-300 lg:text-xl font-light"
             >
-              كل فيلا بمساحة 100 متر مربع، صُممت لتمنحك إحساس الخصوصية المطلقة
-              والراحة التامة
+              {t("slider.description")}
             </TextEffect>
           </div>
           <Carousel_003
@@ -373,6 +378,7 @@ const AboutUs = ({ settings, aboutUs }: AboutUsProps) => {
           />
         </div>
       )}
+
       {/* Copper Forge Background with Top Glow */}
       <div
         className="absolute inset-0 z-0 rotate-180"

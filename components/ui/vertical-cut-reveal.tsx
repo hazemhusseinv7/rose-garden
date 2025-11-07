@@ -201,7 +201,7 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
                         ? onComplete
                         : undefined
                     }
-                    className="inline-block"
+                    className="inline-block text-nowrap"
                   >
                     {char}
                   </motion.span>

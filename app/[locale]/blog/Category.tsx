@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import {
   Modal,
   ModalContent,
@@ -17,11 +19,13 @@ const Category = ({
 }: CategoryType & {
   className?: string;
 }) => {
+  const t = useTranslations("Blog");
+
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
-      <Button className={className} onPress={onOpen}  >
+      <Button className={className} onPress={onOpen}>
         {title}
       </Button>
 
@@ -49,7 +53,7 @@ const Category = ({
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
-                  إغلاق
+                  {t("close")}
                 </Button>
               </ModalFooter>
             </>

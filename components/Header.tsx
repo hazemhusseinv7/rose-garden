@@ -1,10 +1,14 @@
+import { getLocale } from "next-intl/server";
+
 import { getHeaderData } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 
 import CardNav from "@/components/CardNav";
 
 const Header = async () => {
-  const data: HeaderType | null = await getHeaderData();
+  const locale = await getLocale();
+
+  const data: HeaderType | null = await getHeaderData(locale);
 
   const items = data?.navigationItems.map(({ title, image, links }, i) => {
     const colors = [
@@ -29,7 +33,7 @@ const Header = async () => {
   return (
     <header>
       <CardNav
-        logo="/logo/logo-horizontal-alt.svg"
+        logo="/logo/icon.svg"
         logoAlt="Logo"
         items={items}
         baseColor="oklch(92% 0.004 286.32)"

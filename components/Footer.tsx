@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { getTranslations } from "next-intl/server";
+
 import { getSettingsData } from "@/lib/sanity/queries";
 
 import {
@@ -13,23 +15,25 @@ import {
 import { RiWhatsappLine } from "react-icons/ri";
 
 const Footer = async () => {
+  const t = await getTranslations("Footer");
+
   const settings: SettingsType | null = await getSettingsData();
 
   const links = [
     {
-      title: "المرافق والأنشطة",
+      title: t("links.link-1"),
       href: "/facilities",
     },
     {
-      title: "المدونة",
+      title: t("links.link-2"),
       href: "/blog",
     },
     {
-      title: "احجز الآن",
+      title: t("links.link-3"),
       href: "/reservation",
     },
     {
-      title: "تواصل معنا",
+      title: t("links.link-4"),
       href: "/contact",
     },
   ];
@@ -112,8 +116,8 @@ const Footer = async () => {
         </div>
         <span className="flex items-center justify-center gap-1 text-muted-foreground text-center text-sm">
           {" "}
-          <FaRegCopyright className="inline" /> {new Date().getFullYear()} جميع
-          الحقوق محفوظة.
+          <FaRegCopyright className="inline" /> {new Date().getFullYear()}{" "}
+          {t("copyright")}
         </span>
       </div>
     </footer>

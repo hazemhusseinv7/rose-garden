@@ -1,0 +1,122 @@
+{
+  "Metadata": {
+    "title": "Rose Garden",
+    "description": "Rose Garden Al-Shafa"
+  },
+
+  "Header": { "button": "Book Now" },
+
+  "AboutUs": {
+    "title": "About us",
+
+    "highlight": {
+      "content-1": {
+        "item-1": "2200",
+        "item-2": "meters",
+        "item-3": "Above",
+        "item-4": "Sea Level"
+      },
+      "content-2": {
+        "item-1": "7500",
+        "item-2": "m",
+        "item-3": "Total Resort Area"
+      },
+      "content-3": {
+        "item-1": "7",
+        "item-2": "Luxury Independent Villas"
+      }
+    },
+
+    "description": {
+      "item-1": "At Rose Garden Al Shafa, we believe tranquility is a luxury.",
+      "item-2": "We created this place to be your destination among the clouds, where the beauty of nature meets the comfort of accommodation.",
+      "item-3": "Each villa is designed to give you complete privacy and comfort, With elegant spaces and a tranquil view.",
+      "item-4": "Our goal is for you to feel at home…",
+      "item-5": "But with a view like no other"
+    },
+
+    "location": {
+      "item-1": "Al Shafa Mountain Area",
+      "item-2": "Taif, Saudi Arabia"
+    },
+
+    "button": "Book Now",
+
+    "slider": {
+      "title": "7 Luxury Villas",
+      "description": "Each villa, with an area of 100 square meters, is designed to give you a feeling of absolute privacy and complete comfort"
+    }
+  },
+
+  "Facilities": {
+    "title": {
+      "item-1": "Facilities",
+      "item-2": "Activities"
+    },
+
+    "description": {
+      "item-1": "At Rose Garden Al Shafa, we believe that tranquility is a luxury.",
+      "item-2": "We created this place to be your destination among the clouds, where the beauty of nature meets the comfort of accommodation."
+    }
+  },
+
+  "Testimonials": {
+    "title": "Testimonials"
+  },
+
+  "ContactUs": {
+    "title": "Contact Us",
+    "cards": {
+      "card-1": "Email Address",
+      "card-2": "Phone Number"
+    },
+
+    "form": {
+      "title": "For inquiries and reservations",
+      "fullname": "Name",
+      "phone": "Phone Number",
+      "email": "Email",
+      "message": "Message",
+      "button": "Submit"
+    },
+
+    "messages": {
+      "success": {
+        "title": "Message Sent Successfully",
+        "description": "Thank you for contacting us. We will get back to you as soon as possible."
+      },
+      "error": {
+        "title": "Sending Failed",
+        "description": "An error occurred while sending the message. Please try again."
+      }
+    }
+  },
+
+  "Footer": {
+    "links": {
+      "link-1": "Facilities & Activities",
+      "link-2": "Blog",
+      "link-3": "Book Now",
+      "link-4": "Contact us"
+    },
+
+    "copyright": "All rights reserved."
+  },
+
+  "ReservationButton": {
+    "content": "To book via WhatsApp"
+  },
+
+  "Blog": {
+    "title": "Blog",
+    "read-more": "Read more",
+    "not-found": "No articles are currently available",
+
+    "post": {
+      "return": "Return to the blog",
+      "not-found": "The article does not exist."
+    },
+
+    "close": "Close"
+  }
+}

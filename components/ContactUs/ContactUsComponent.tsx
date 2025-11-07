@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 
+import { useTranslations } from "next-intl";
+
 import { addToast } from "@heroui/react";
 
 import { Card } from "@/components/ui/card";
@@ -23,6 +25,8 @@ interface FormDataType {
 }
 
 const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
+  const t = useTranslations("ContactUs");
+
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState<FormDataType>({
     fullname: "",
@@ -54,8 +58,8 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
 
       if (response.ok) {
         addToast({
-          title: "تم الإرسال بنجاح",
-          description: "شكراً لتواصلك معنا سنرد عليك فى أقرب وقت",
+          title: t("messages.success.title"),
+          description: t("messages.success.description"),
           color: "success",
         });
 
@@ -67,12 +71,12 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
           message: "",
         });
       } else {
-        throw new Error("فشل في إرسال الرسالة");
+        throw new Error(t("messages.error.title"));
       }
     } catch (error) {
       addToast({
-        title: "خطأ في الإرسال",
-        description: "حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+        title: t("messages.error.title"),
+        description: t("messages.error.description"),
         color: "danger",
       });
       console.log(error);
@@ -84,13 +88,13 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
   return (
     <div className="mx-auto max-w-4xl px-4 lg:px-0">
       <h2 className="mb-12 text-center text-4xl font-semibold lg:text-5xl">
-        تواصل معنا
+        {t("title")}
       </h2>
 
       <div className="grid divide-y border md:grid-cols-2 md:gap-4 md:divide-x md:divide-y-0">
         <div className="flex flex-col justify-between space-y-8 p-6 sm:p-12">
           <div>
-            <h3 className="mb-3 text-lg font-semibold">رقم الهاتف</h3>
+            <h3 className="mb-3 text-lg font-semibold">{t("cards.card-1")}</h3>
             <Link
               dir="ltr"
               href={`tel:${settings?.phone}`}
@@ -102,7 +106,7 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
         </div>
         <div className="flex flex-col justify-between space-y-8 p-6 sm:p-12">
           <div>
-            <h3 className="mb-3 text-lg font-semibold">البريد الإلكترونى</h3>
+            <h3 className="mb-3 text-lg font-semibold">{t("cards.card-2")}</h3>
             <Link
               href={`mailto:${settings?.email}`}
               className="text-lg text-primary-4 hover:underline dark:text-primary-4"
@@ -119,12 +123,12 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
         onSubmit={handleSubmit}
       >
         <Card className="mx-auto max-w-lg p-8 sm:p-16">
-          <h3 className="text-xl font-semibold">للاستفسارات والحجوزات</h3>
+          <h3 className="text-xl font-semibold">{t("form.title")}</h3>
 
           <div className="**:[&>label]:block mt-4 space-y-6 *:space-y-3">
             <div>
               <Label htmlFor="fullname" className="space-y-2">
-                الإسم
+                {t("form.fullname")}
               </Label>
               <Input
                 type="text"
@@ -136,7 +140,7 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
             </div>
             <div>
               <Label htmlFor="phone" className="space-y-2">
-                رقم الهاتف
+                {t("form.phone")}
               </Label>
               <Input
                 type="tel"
@@ -148,7 +152,7 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
             </div>
             <div>
               <Label htmlFor="email" className="space-y-2">
-                البريد الإلكترونى
+                {t("form.email")}
               </Label>
               <Input
                 type="email"
@@ -159,7 +163,7 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
             </div>
             <div>
               <Label htmlFor="message" className="space-y-2">
-                الرسالة
+                {t("form.message")}
               </Label>
               <Textarea
                 id="message"
@@ -170,7 +174,7 @@ const ContactUsComponent = ({ settings }: ContactUsComponentProps) => {
               />
             </div>
             <Button className="w-full" disabled={isLoading}>
-              إرسال
+              {t("form.button")}
             </Button>
           </div>
         </Card>
