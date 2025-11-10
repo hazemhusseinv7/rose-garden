@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Locale, hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -57,7 +57,8 @@ export default async function RootLayout({
 
   const direction = locale === "ar" ? "rtl" : "ltr";
 
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID!;
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID,
+    gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (
     <html lang={locale} dir={direction} className="scroll-smooth dark">
@@ -78,7 +79,8 @@ export default async function RootLayout({
         </NextIntlClientProvider>
       </body>
 
-      <GoogleTagManager gtmId={gtmId} />
+      {gtmId && <GoogleTagManager gtmId={gtmId} />}
+      {gaId && <GoogleAnalytics gaId={gaId} />}
     </html>
   );
 }
