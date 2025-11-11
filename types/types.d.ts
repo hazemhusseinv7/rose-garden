@@ -21,7 +21,9 @@ type SettingsType = {
   instagram?: string;
   snapchat?: string;
   whatsapp?: string;
+  enableCompetition: boolean;
 };
+
 interface HeaderType {
   navigationItems: {
     title: string;

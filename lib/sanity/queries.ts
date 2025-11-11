@@ -1,5 +1,10 @@
 import { sanityClient } from "@/lib/sanity/client";
 
+const REVALIDATE_TIME =
+  process.env.NODE_ENV === "production"
+    ? Number(process.env.REVALIDATE_TIME) || 3600
+    : 0;
+
 export async function getSettingsData(): Promise<SettingsType | null> {
   const query = `*[_type == "settings"][0]{
     email,
@@ -8,7 +13,8 @@ export async function getSettingsData(): Promise<SettingsType | null> {
     tiktok,
     instagram,
     snapchat,
-    whatsapp
+    whatsapp,
+    enableCompetition
   }`;
 
   try {
@@ -16,7 +22,7 @@ export async function getSettingsData(): Promise<SettingsType | null> {
       query,
       {},
       {
-        next: { revalidate: 3600, tags: ["settings", "content"] },
+        next: { revalidate: REVALIDATE_TIME, tags: ["settings", "content"] },
       }
     );
   } catch (error) {
@@ -52,7 +58,7 @@ export async function getHeaderData(
       query,
       { lang },
       {
-        next: { revalidate: 3600, tags: ["header"] },
+        next: { revalidate: REVALIDATE_TIME, tags: ["header"] },
       }
     );
   } catch (error) {
@@ -90,7 +96,7 @@ export async function getHeroData(
       query,
       { lang },
       {
-        next: { revalidate: 3600, tags: ["hero", "content"] },
+        next: { revalidate: REVALIDATE_TIME, tags: ["hero", "content"] },
       }
     );
   } catch (error) {
@@ -126,7 +132,7 @@ export async function getAboutUsData(): Promise<AboutUsType | null> {
       query,
       {},
       {
-        next: { revalidate: 3600, tags: ["aboutUs"] },
+        next: { revalidate: REVALIDATE_TIME, tags: ["aboutUs"] },
       }
     );
   } catch (error) {
@@ -159,7 +165,7 @@ export async function getFacilitiesData(
       query,
       { lang },
       {
-        next: { revalidate: 3600, tags: ["facilities"] },
+        next: { revalidate: REVALIDATE_TIME, tags: ["facilities"] },
       }
     );
   } catch (error) {
@@ -183,7 +189,7 @@ export async function getTestimonialsData(
       query,
       { lang },
       {
-        next: { revalidate: 3600, tags: ["testimonials"] },
+        next: { revalidate: REVALIDATE_TIME, tags: ["testimonials"] },
       }
     );
   } catch (error) {
@@ -210,7 +216,7 @@ export async function getBlogPosts(
       query,
       { lang },
       {
-        next: { revalidate: 3600, tags: ["blog", "content"] },
+        next: { revalidate: REVALIDATE_TIME, tags: ["blog", "content"] },
       }
     );
   } catch (error) {
@@ -239,7 +245,10 @@ export async function getBlogPost(
       query,
       { slug, lang },
       {
-        next: { revalidate: 3600, tags: [`blog-post-${slug}`, "content"] },
+        next: {
+          revalidate: REVALIDATE_TIME,
+          tags: [`blog-post-${slug}`, "content"],
+        },
       }
     );
   } catch (error) {

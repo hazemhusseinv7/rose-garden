@@ -70,8 +70,8 @@ declare const messages: {
   "ContactUs": {
     "title": "Contact Us",
     "cards": {
-      "card-1": "Email Address",
-      "card-2": "Phone Number"
+      "card-1": "Phone Number",
+      "card-2": "Email Address"
     },
 
     "form": {
@@ -121,6 +121,45 @@ declare const messages: {
     },
 
     "close": "Close"
+  },
+
+  "Competition": {
+    "title": "Rose Beauty Contest Told Through a Lens",
+    "cards": {
+      "card-1": "Phone Number",
+      "card-2": "Email Address"
+    },
+
+    "form": {
+      "title": "To participate in the competition",
+      "fullname": "Full Name",
+      "phone": "Mobile Number (WhatsApp)",
+      "email": "Email Address (Optional)",
+      "city": "City",
+      "specialization": {
+        "label": "Type of Participation",
+        "participation": {
+          "label": "Specialization",
+          "item-1": "Photography",
+          "item-2": "Videography"
+        }
+      },
+      "portfolio": "Link to Instagram Account or Portfolio",
+      "checkbox": "I agree that Rose Garden Resort may use the photos and videos in marketing campaigns while preserving my rights as the photographer.",
+      "button": "Submit"
+    },
+
+    "messages": {
+      "success": {
+        "title": "Message Sent Successfully",
+        "description": "Thank you for joining the 'Beauty of Rose' photography competition. You will be contacted via WhatsApp to confirm the appointment and details. Get ready for a unique photography experience among roses and fog"
+      },
+      "error": {
+        "title": "Sending Failed",
+        "description": "An error occurred while sending the message. Please try again.",
+        "checkbox": "Must agree to the terms and conditions"
+      }
+    }
   }
 };
 export default messages;

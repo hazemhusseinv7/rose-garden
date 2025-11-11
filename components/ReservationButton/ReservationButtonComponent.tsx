@@ -17,7 +17,7 @@ const ReservationButtonComponent = ({ whatsapp }: { whatsapp: string }) => {
       rel="noopener noreferrer"
       color="success"
       endContent={<RiWhatsappFill className="size-4" />}
-      className="fixed bottom-4 start-4 z-100"
+      className="fixed bottom-4 start-4 z-90"
     >
       {t("content")}
     </Button>
