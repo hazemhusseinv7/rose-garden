@@ -5,8 +5,8 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import { PortableText } from "@portabletext/react";
 
-import Category from "@/app/[locale]/blog/Category";
-import Author from "@/app/[locale]/blog/Author";
+import Category from "../Category";
+import Author from "../Author";
 
 import { getBlogPost, getBlogPosts } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
@@ -38,13 +38,21 @@ const portableTextComponents = {
 
 // Generate static params for SSG
 export async function generateStaticParams() {
-  const posts = await getBlogPosts();
+  const languages = ["en", "ar"];
+  const allPosts = [];
 
-  if (!posts) return [];
+  for (const locale of languages) {
+    const posts = await getBlogPosts(locale);
+    if (posts) {
+      allPosts.push(
+        ...posts.map((post) => ({
+          slug: post.slug.current,
+        }))
+      );
+    }
+  }
 
-  return posts.map((post) => ({
-    slug: post.slug.current,
-  }));
+  return allPosts;
 }
 
 export default async function Page({
