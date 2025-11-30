@@ -6,6 +6,7 @@ interface ImageType {
   };
   alt?: string;
 }
+
 interface VideoType {
   url: string;
   originalFilename?: string;

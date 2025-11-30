@@ -40,7 +40,7 @@ export default function Page() {
     }
 
     fetchPosts();
-  }, []);
+  }, [locale]);
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;

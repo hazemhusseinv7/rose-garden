@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 import { PortableText } from "@portabletext/react";
 
@@ -53,7 +53,9 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = await getBlogPost(slug);
+  const locale = await getLocale();
+
+  const post = await getBlogPost(slug, locale);
   const t = await getTranslations("Blog.post");
 
   if (!post) {
