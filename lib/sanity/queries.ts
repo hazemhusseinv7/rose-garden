@@ -208,7 +208,13 @@ export async function getBlogPosts(
     mainImage,
     publishedAt,
     "author": author->{name, image, bio},
-    "categories": categories[]->{title, description}
+    "categories": categories[]->{title, description},
+    "seo": seo {
+      seoTitle,
+      seoDescription,
+      ogImage,
+      noIndex
+    }
   }`;
 
   try {
@@ -237,7 +243,20 @@ export async function getBlogPost(
     publishedAt,
     body,
     "author": author->{name, image, bio},
-    "categories": categories[]->{title, description}
+    "categories": categories[]->{title, description},
+    "seo": seo {
+      seoTitle,
+      seoDescription,
+      ogImage,
+      noIndex
+    },
+    "cta": cta {
+      ctaTitle,
+      ctaDescription,
+      ctaButtonText,
+      ctaButtonUrl,
+      ctaVariant
+    }
   }`;
 
   try {

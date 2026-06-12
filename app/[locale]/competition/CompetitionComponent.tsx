@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 
 import { addToast } from "@heroui/react";
@@ -52,7 +52,7 @@ const CompetitionComponent = ({ settings }: CompetitionComponentProps) => {
 
   const handleInputChange = (
     field: keyof FormDataType,
-    value: string | boolean
+    value: string | boolean,
   ) => {
     setFormData((prev) => ({
       ...prev,

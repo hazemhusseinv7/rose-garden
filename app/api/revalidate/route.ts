@@ -7,7 +7,7 @@ export async function POST() {
 
     revalidatePath("/", "layout");
 
-    console.log("Entire site revalidated");
+    console.log("All site revalidated");
 
     return NextResponse.json({
       revalidated: true,

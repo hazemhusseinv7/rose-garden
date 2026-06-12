@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useLayoutEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
 import { useTranslations } from "next-intl";
@@ -109,7 +109,7 @@ const CardNav: React.FC<CardNavProps> = ({
     tl.to(
       cardsRef.current,
       { y: 0, opacity: 1, duration: 0.4, ease, stagger: 0.08 },
-      "-=0.1"
+      "-=0.1",
     );
 
     return tl;

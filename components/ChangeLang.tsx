@@ -39,7 +39,7 @@ const ChangeLang = ({ className }: { className?: string }) => {
   return (
     <Dropdown className={className}>
       <DropdownTrigger>
-        <Button
+        <Button 
           className="min-w-0 max-w-12 bg-primary-1"
           variant="shadow"
           endContent={!isPending && <FaEarthAfrica className="size-4" />}

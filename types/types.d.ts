@@ -71,6 +71,21 @@ interface AuthorType {
   image?: any;
   bio?: any[];
 }
+interface BlogSEO {
+  seoTitle?: string;
+  seoDescription?: string;
+  ogImage?: ImageType;
+  noIndex?: boolean;
+}
+
+interface BlogCTA {
+  ctaTitle: string;
+  ctaDescription?: string;
+  ctaButtonText: string;
+  ctaButtonUrl: string;
+  ctaVariant?: "primary" | "secondary";
+}
+
 interface BlogPost {
   _id: string;
   title: string;
@@ -82,4 +97,6 @@ interface BlogPost {
   body: any[];
   author?: AuthorType;
   categories?: CategoryType[];
+  seo?: BlogSEO;
+  cta?: BlogCTA;
 }
